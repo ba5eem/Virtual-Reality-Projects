@@ -7,12 +7,15 @@ VR Hardware: [Vive Pro](https://www.vive.com/us/product/vive-pro/)
 Processor: [AMD Ryzen Threadripper](https://www.amd.com/en/products/ryzen-threadripper)
 Graphics: [GeForce GTX 1080 Ti * 2](https://www.nvidia.com/en-us/geforce/products/10series/geforce-gtx-1080-ti/)
 
-### reactHello [React 360](https://facebook.github.io/react-360/)
+### playcanvasHello [Play Canvas](https://playcanvas.com/)- Javascript
+ - Hello World - Exploring the WebVR Potential
+
+### reactHello [React 360](https://facebook.github.io/react-360/)- Javascript
  - Demo is a 360 photo viewer using an array of images - you can add more images on client.js
 
-### vrhello [A-FRAME](https://aframe.io/)
+### aframehello [A-FRAME](https://aframe.io/)- Javascript
  - Demo example courtesy of A-FRAME Docs - checkout their site for lots of getting started examples
 
-### unityHello [UNITY](https://unity3d.com/)
+### unityHello [UNITY](https://unity3d.com/)- C#
  - TBA
 

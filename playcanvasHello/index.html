@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>PlayCanvas WebVR Example</title>
+        <script src='https://code.playcanvas.com/playcanvas-stable.min.js'></script>
+        <script src="https://code.playcanvas.com/webvr-polyfill.91fbc44.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            canvas {
+                width:100%;
+                height:100%;
+
+            }
+            .message {
+                position: absolute;
+                left: 20px;
+                bottom: 0px;
+                color: #ccc;
+                font-family: "Proxima Nova", Arial, sans-serif;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="application-canvas"></canvas>
+        <div>
+            <p class="message"></p>
+        </div>
+        <script src="./drawAxes.js"></script>
+
+
+        <script src="./main.js"></script>
+    </body>
+</html>

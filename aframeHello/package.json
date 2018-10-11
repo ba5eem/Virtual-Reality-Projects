@@ -1,15 +1,22 @@
 {
-  "name": "vrhello",
+  "name": "arlhello",
+  "description": "arlhello.",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "live-server --port=7000",
+    "deploy": "ghpages"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "aframe": "^0.8.2"
-  }
+  "devDependencies": {
+    "ghpages": "0.0.3",
+    "live-server": "^1.2.0"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-example",
+    "aframe-boilerplate",
+    "aframe-scene",
+    "webvr",
+    "vr"
+  ]
 }

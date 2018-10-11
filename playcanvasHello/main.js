@@ -9,6 +9,7 @@ var app = new pc.Application(canvas, {
     touch: new pc.TouchDevice(canvas),
     vr: true
 });
+
 app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
 app.setCanvasResolution(pc.RESOLUTION_AUTO);
 
@@ -27,13 +28,13 @@ app.root.addChild(c);
 
 var l = new pc.Entity();
 l.addComponent("light", {
-    type: "spot",
-    range: 30
+    type: "directional",
+    range: 10
 });
 l.translate(0,10,0);
 app.root.addChild(l);
 
-
+// this is creating cubes for demo
 var createCube = function(x,y,z) {
     var cube = new pc.Entity();
     cube.addComponent("model", {
@@ -44,14 +45,15 @@ var createCube = function(x,y,z) {
     app.root.addChild(cube);
 };
 
-// create a grid of cubes
-var SIZE = 16;
+// create a grid of cubes with for loop
+var SIZE = 4;
 for (var x = 0; x < SIZE; x++) {
     for (var y = 0; y < SIZE; y++) {
         createCube(2*x - SIZE, -1.5, 2*y - SIZE);
     }
 }
 
+// activate function to start VR - its started with mouse click on window
 var activate = function () {
     if (app.vr && app.vr.display) {
         c.camera.enterVr(function (err) {
@@ -64,7 +66,8 @@ var activate = function () {
 };
 
 app.mouse.on("mousedown", function () {
-    activate();
+    //activate();
+    console.log('TODO: To activate uncomment in app.mouse.on')
 });
 
 if (app.touch) {

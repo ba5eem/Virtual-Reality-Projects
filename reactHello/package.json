@@ -10,11 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "16.0.0",
-    "react-native": "~0.49.5",
-    "three": "^0.87.0",
     "react-360": "~1.0.0",
-    "react-360-web": "~1.0.0"
+    "react-360-web": "~1.0.0",
+    "react-native": "~0.49.5",
+    "three": "^0.87.0"
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
@@ -26,5 +27,6 @@
   },
   "jest": {
     "preset": "react-360"
-  }
+  },
+  "proxy": "http://192.168.2.192:9000"
 }

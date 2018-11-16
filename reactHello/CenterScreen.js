@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, VrButton, Environment, asset, Video, MediaPlayerState, VideoControl, Entity } from 'react-360';
+import {Image, StyleSheet, Text, View, VrButton, asset} from 'react-360';
 import axios from 'axios';
-
 
 
 
@@ -17,14 +16,11 @@ class CenterScreen extends Component {
     this.state = {
       title: 'Loading...',
       hover: false
-      // init with muted, autoPlay
     }
   }
 
 
   componentDidMount() {
-    // Create a player
-
     // axios.get(url)
     // .then(res => {
     //   console.log(res);
@@ -54,6 +50,17 @@ class CenterScreen extends Component {
         </View>
         <View style={styles.header}>
 
+            <VrButton 
+              onEnter={() => this.setState({hover: true})}
+              onExit={() => this.setState({hover: false})}
+              onClick={(e)=>console.log("1")} 
+              style={styles.container}>
+              
+              <Image 
+              style={styles.image}
+              source={asset('map.jpg')}/>
+
+            </VrButton>
   
         </View>
         
@@ -102,12 +109,11 @@ const styles = StyleSheet.create({
     transform: [{translate: [0,0,-2]}]
   },
   container: {
-
-    marginLeft:20,
+    backgroundColor: '#707A8CB3', 
     width: "90%", 
-    height: 350, 
-    marginTop: 5,
-    marginBottom: 5
+    height: 480, 
+    marginTop: 20,
+    marginBottom: 20
   }
 });
 

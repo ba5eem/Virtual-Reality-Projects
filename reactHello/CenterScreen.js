@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import {Image, StyleSheet, Text, View, VrButton} from 'react-360';
+import { Image, StyleSheet, Text, View, VrButton, Environment, asset, Video, MediaPlayerState, VideoControl, Entity } from 'react-360';
 import axios from 'axios';
+
+
+
+
 const url = "http://192.168.2.192:9000";
+
+
+
 
 class CenterScreen extends Component {
   constructor(props){
@@ -10,21 +17,24 @@ class CenterScreen extends Component {
     this.state = {
       title: 'Loading...',
       hover: false
+      // init with muted, autoPlay
     }
   }
 
 
   componentDidMount() {
-    axios.get(url)
-    .then(res => {
-      console.log(res);
-      this.setState({
-        title: res.data.message
-      })
-    })
-    .catch(err => {
-      console.log(err);
-    })
+    // Create a player
+
+    // axios.get(url)
+    // .then(res => {
+    //   console.log(res);
+    //   this.setState({
+    //     title: res.data.message
+    //   })
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // })
   }
 
 
@@ -44,17 +54,6 @@ class CenterScreen extends Component {
         </View>
         <View style={styles.header}>
 
-            <VrButton 
-              onEnter={() => this.setState({hover: true})}
-              onExit={() => this.setState({hover: false})}
-              onClick={(e)=>console.log("1")} 
-              style={styles.container}>
-              
-              <Image 
-              style={styles.image}
-              source={staticResourceURL('./static_assets/map.jpg')}/>
-
-            </VrButton>
   
         </View>
         
@@ -97,16 +96,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFCC66'
   },
   image: {
-    width: '50%',
-    height: 225,
+    width: '100%',
+    height: '100%',
     zIndex: 10,
     transform: [{translate: [0,0,-2]}]
   },
   container: {
-    backgroundColor: '#707A8CB3', 
-    width: "80%", 
-    height: 400, 
-    marginTop: 50,
+
+    marginLeft:20,
+    width: "90%", 
+    height: 350, 
+    marginTop: 5,
+    marginBottom: 5
   }
 });
 

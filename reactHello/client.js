@@ -6,11 +6,11 @@ function init(bundle, parent, options = {}) {
     ...options,
   });
 
-  const leftPanel = new Surface(1000, 600, Surface.SurfaceShape.Flat);
-  leftPanel.setAngle(-0.6, 0);
+  const leftPanel = new Surface(600, 600, Surface.SurfaceShape.Flat);
+  leftPanel.setAngle(-1.1, 0);
   
-  const rightPanel = new Surface(1000, 600, Surface.SurfaceShape.Flat);
-  rightPanel.setAngle(0.6, 0);
+  const rightPanel = new Surface(600, 600, Surface.SurfaceShape.Flat);
+  rightPanel.setAngle(1.1, 0);
 
   const centerPanel = new Surface(1000, 600, Surface.SurfaceShape.Cylinder);
   centerPanel.setAngle(0, 0);
@@ -28,6 +28,14 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('CenterScreen'),
     centerPanel,
   );
+
+  r360.compositor.setBackground('./static_assets/hawaii.jpg');
+  // Creating a Video Player
+  // const player = r360.compositor.createVideoPlayer('myplayer');
+  // // Set the video to be played, and its format
+  // player.setSource('./static_assets/shark.mp4', '2D');
+  
+
 
 
 }

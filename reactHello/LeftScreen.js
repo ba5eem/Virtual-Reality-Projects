@@ -1,5 +1,8 @@
 import * as React from 'react';
-import {Image, StyleSheet, Text, View, VrButton} from 'react-360';
+import { Image, StyleSheet, Text, View, VrButton, Environment, asset, VideoPano } from 'react-360';
+
+
+
 
 
 class LeftScreen extends React.Component {
@@ -14,6 +17,8 @@ class LeftScreen extends React.Component {
 
 
   componentDidMount() {
+    // Create a player
+ 
     // axios.get(url)
     // .then(res => {
     //   console.log(res);
@@ -38,8 +43,22 @@ class LeftScreen extends React.Component {
             onExit={() => this.setState({hover: false})}
             onClick={(e)=>console.log("1")} 
             style={[styles.postButton, this.state.hover ? styles.postButtonHover : null]}>
-            <Text style={styles.title}>Command Center</Text>
+            <Text style={styles.title}>Drone Footage</Text>
           </VrButton>
+
+          <View style={styles.header}>
+
+            <VrButton 
+              onEnter={() => this.setState({hover: true})}
+              onExit={() => this.setState({hover: false})}
+              onClick={(e)=>console.log("1")} 
+              style={styles.container}>
+                
+
+            </VrButton>
+  
+        </View>
+
 
         </View>
       </View>
@@ -60,7 +79,7 @@ const styles = StyleSheet.create({
   postButton: {
     height: 95,
     width: 200,
-    marginRight: 550,
+    marginRight: 400,
     borderBottomRightRadius: 50,
     borderBottomLeftRadius: 50,
     backgroundColor: '#707A8C'
@@ -73,6 +92,12 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'center'
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    zIndex: 10,
+    transform: [{translate: [0,0,-2]}]
   },
   postButtonHover: {
     backgroundColor: '#FFCC66'

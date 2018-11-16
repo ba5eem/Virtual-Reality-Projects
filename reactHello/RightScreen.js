@@ -38,7 +38,7 @@ class RightScreen extends React.Component {
             onExit={() => this.setState({hover: false})}
             onClick={(e)=>console.log("1")} 
             style={[styles.postButton, this.state.hover ? styles.postButtonHover : null]}>
-            <Text style={styles.title}>Command Center</Text>
+            <Text style={styles.title}>LSTS</Text>
           </VrButton>
 
         </View>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   postButton: {
     height: 95,
     width: 200,
-    marginLeft: 550,
+    marginRight: 400,
     borderBottomRightRadius: 50,
     borderBottomLeftRadius: 50,
     backgroundColor: '#707A8C'

@@ -6,38 +6,26 @@ function init(bundle, parent, options = {}) {
     ...options,
   });
 
-  const leftPanel = new Surface(600, 600, Surface.SurfaceShape.Flat);
-  leftPanel.setAngle(-1.1, 0);
-  
-  const rightPanel = new Surface(600, 600, Surface.SurfaceShape.Flat);
-  rightPanel.setAngle(1.1, 0);
-
-  const centerPanel = new Surface(1000, 600, Surface.SurfaceShape.Cylinder);
-  centerPanel.setAngle(0, 0);
-
-
+  // Create three roots: two flat panels on the left and the right, and a Location
+  // to mount rendered models in 3D space
+  const leftPanel = new Surface(300, 600, Surface.SurfaceShape.Flat);
+  leftPanel.setAngle(-0.8, 0);
+  const rightPanel = new Surface(300, 600, Surface.SurfaceShape.Flat);
+  rightPanel.setAngle(0.8, 0);
   r360.renderToSurface(
-    r360.createRoot('LeftScreen'),
+    r360.createRoot('TopPosts'),
     leftPanel,
   );
   r360.renderToSurface(
-    r360.createRoot('RightScreen'),
+    r360.createRoot('CurrentPost'),
     rightPanel,
   );
-  r360.renderToSurface(
-    r360.createRoot('CenterScreen'),
-    centerPanel,
+  r360.renderToLocation(
+    r360.createRoot('SubmarineView'),
+    new Location([0, 0, -6]),
   );
 
-  r360.compositor.setBackground('./static_assets/hawaii.jpg');
-  // Creating a Video Player
-  // const player = r360.compositor.createVideoPlayer('myplayer');
-  // // Set the video to be played, and its format
-  // player.setSource('./static_assets/shark.mp4', '2D');
-  
-
-
-
+  r360.compositor.setBackground('./static_assets/360_world.jpg');
 }
 
 window.React360 = {init};

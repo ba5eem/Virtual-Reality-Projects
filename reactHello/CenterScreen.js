@@ -39,31 +39,7 @@ class CenterScreen extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <View style={styles.header}>
-          <VrButton 
-            onEnter={() => this.setState({hover: true})}
-            onExit={() => this.setState({hover: false})}
-            onClick={(e)=>console.log("1")} 
-            style={[styles.postButton, this.state.hover ? styles.postButtonHover : null]}>
-            <Text style={styles.title}>Command Center</Text>
-          </VrButton>
-        </View>
-        <View style={styles.header}>
 
-            <VrButton 
-              onEnter={() => this.setState({hover: true})}
-              onExit={() => this.setState({hover: false})}
-              onClick={(e)=>console.log("1")} 
-              style={styles.container}>
-              
-              <Image 
-              style={styles.image}
-              source={asset('map.jpg')}/>
-
-            </VrButton>
-  
-        </View>
-        
 
       </View>
     );
@@ -76,7 +52,6 @@ const styles = StyleSheet.create({
   wrapper: {
     width: 1000,
     height: 600,
-    backgroundColor: '#1F2430',
     borderColor: '#313E52',
     borderWidth: 5,
     flexDirection: 'column',
@@ -91,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#707A8C'
   },
   title: {
-    fontSize: 50, 
+    fontSize: 50,
     color: '#FF3333',
     textAlign: 'center'
   },
@@ -109,9 +84,9 @@ const styles = StyleSheet.create({
     transform: [{translate: [0,0,-2]}]
   },
   container: {
-    backgroundColor: '#707A8CB3', 
-    width: "90%", 
-    height: 480, 
+    backgroundColor: '#707A8CB3',
+    width: "90%",
+    height: 480,
     marginTop: 20,
     marginBottom: 20
   }

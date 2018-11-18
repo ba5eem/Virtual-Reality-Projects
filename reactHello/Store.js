@@ -4,6 +4,8 @@ import {data} from './objData';
 const State = {
   posts: undefined,
   current: -1,
+  moveLeft: false,
+  moveRight: false
 };
 
 const listeners = new Set();
@@ -14,11 +16,27 @@ function updateComponents() {
   }
 }
 
+export function rotateGlobe(e){
+  if(e === 'left'){ State.moveLeft = true; }
+  else if(e === 'right'){ State.moveRight = true; }
+  return true;
+  updateComponents();
+}
+
+export function getMoveLeft(){
+  return State.moveLeft;
+}
+
+export function getMoveRight(){
+  return State.moveRight;
+}
+
 export function initialize(apiKey) {
   const entries = data.map(asset => {
         const objSource = asset.formats.filter(
           format => format.formatType === 'GLTF2'
         )[0];
+        console.log(objSource);
         return {
           id: asset.name,
           name: asset.displayName,
@@ -43,12 +61,16 @@ export function connect(Component) {
     state = {
       posts: State.posts,
       current: State.current,
+      moveLeft: State.moveLeft,
+      moveRight: State.moveRight
     };
 
     _listener = () => {
       this.setState({
         posts: State.posts,
         current: State.current,
+        moveLeft: State.moveLeft,
+        moveRight: State.moveRight
       });
     };
 
@@ -66,6 +88,8 @@ export function connect(Component) {
           {...this.props}
           posts={this.state.posts}
           current={this.state.current}
+          moveLeft={this.state.moveLeft}
+          moveRight={this.state.moveRight}
         />
       );
     }

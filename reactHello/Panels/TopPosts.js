@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Image, StyleSheet, Text, View, VrButton} from 'react-360';
 import {connect, setCurrent} from '../Store';
+import {data} from '../objData';
 
 class PostButton extends React.Component {
   state = {
@@ -8,6 +9,7 @@ class PostButton extends React.Component {
   };
 
   render() {
+
     return (
       <VrButton
         style={styles.postButton}
@@ -35,16 +37,18 @@ const TopPosts = props => {
       </View>
     );
   }
-
   return (
+
+
+
     <View style={styles.wrapper}>
-      {props.posts.map((post, i) => (
+      {data.map((post, i) => (
         <PostButton
-          key={post.id}
+          key={post.name}
           index={i}
-          name={post.name}
-          author={post.author}
-          preview={post.preview}
+          name={post.displayName}
+          author={post.authorName}
+          preview={post.thumbnail.url}
         />
       ))}
     </View>

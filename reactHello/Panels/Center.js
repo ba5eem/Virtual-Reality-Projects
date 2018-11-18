@@ -1,37 +1,39 @@
 import * as React from 'react';
 import {StyleSheet, Text, View, VrButton} from 'react-360';
-import {connect} from '../Store';
+import {connect, rotateGlobe} from '../Store';
 
-/**
- * Render a description of the currently-selected model.
- * Connected to the global store to receive inputs.
- */
+
 class CenterControl extends React.Component {
   constructor(props){
     super(props)
 
     this.state = {
       title: 'settings',
-      hover: false
+      hoverA: false,
+      hoverB: false
     }
   }
 
 
 
+
+
+
   render(){
+    //console.log(this.props);
     return(
       <View style={styles.wrapper}>
         <VrButton
-          onEnter={() => this.setState({hover: true})}
-          onExit={() => this.setState({hover: false})}
-          onClick={(e)=>console.log("1")}
-          style={[styles.buttonA, this.state.hover ? styles.hover : null]}>
+          onEnter={() => this.setState({hoverA: true})}
+          onExit={() => this.setState({hoverA: false})}
+          onClick={()=>rotateGlobe('left')}
+          style={[styles.buttonA, this.state.hoverA ? styles.hover : null]}>
         </VrButton>
         <VrButton
-          onEnter={() => this.setState({hover: true})}
-          onExit={() => this.setState({hover: false})}
-          onClick={(e)=>console.log("2")}
-          style={[styles.buttonB, this.state.hover ? styles.hover : null]}>
+          onEnter={() => this.setState({hoverB: true})}
+          onExit={() => this.setState({hoverB: false})}
+          onClick={()=>rotateGlobe('right')}
+          style={[styles.buttonB, this.state.hoverB ? styles.hover : null]}>
         </VrButton>
 
       </View>

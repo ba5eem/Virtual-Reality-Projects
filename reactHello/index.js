@@ -10,6 +10,7 @@ import GlobeView from './Views/GlobeView';
 import BattleshipView from './Views/BattleshipView';
 import IslandView from './Views/IslandView';
 import DroneView from './Views/DroneView';
+//import CenterControl from './Views/GlobeView';
 
 // Fake Redux
 import * as Store from './Store';

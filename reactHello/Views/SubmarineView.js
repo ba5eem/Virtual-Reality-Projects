@@ -3,8 +3,9 @@ import {Animated, View} from 'react-360';
 import Entity from 'Entity';
 import AmbientLight from 'AmbientLight';
 import PointLight from 'PointLight';
-import {connect} from '../Store';
 import {Location} from 'react-360-web';
+import {data} from '../objData';
+
 
 const AnimatedEntity = Animated.createAnimatedComponent(Entity);
 
@@ -25,15 +26,9 @@ class SubmarineView extends React.Component {
   }
 
   render() {
-    if (!this.props.posts || this.props.current < 0) {
-      return null;
-    }
-    else if(this.props.posts[this.props.current].id !== 'assets/dfSQmeuuYt3'){
-      return null;
-    }
-    const post = this.props.posts[this.props.current];
-    console.log(post);
-    const source = post.source;
+    const source = data[0].formats.filter(e => {
+      return e.formatType === 'GLTF2';
+    })[0];
     return (
       <View>
         <AmbientLight intensity={1.0} color={'#ffffff'} />
@@ -50,6 +45,6 @@ class SubmarineView extends React.Component {
   }
 }
 
-const ConnectedSubmarineView = connect(SubmarineView);
 
-export default ConnectedSubmarineView;
+
+export default SubmarineView;

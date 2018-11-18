@@ -8,6 +8,13 @@ import {Location} from 'react-360-web';
 
 const AnimatedEntity = Animated.createAnimatedComponent(Entity);
 
+
+export const CenterControl = ({handle}) => {
+  return(<VrButton
+          onClick={handle}
+          style={styles.button}>
+        </VrButton>)
+}
 /**
  * Renders the actual model in 3D space, rotating it a full 360 degrees to show
  * it from all angles.
@@ -20,11 +27,16 @@ class GlobeView extends React.Component {
     console.log('next props', nextProps);
     if (nextProps.current !== this.props.current) {
       this.rotation.setValue(0);
-      Animated.timing(this.rotation, {toValue: 360, duration: 20000}).start();
+      Animated.timing(this.rotation, {toValue: 10, duration: 10}).start();
     }
   }
 
+  handle = () => {
+    console.log('ola')
+  }
+
   render() {
+
     if (!this.props.posts || this.props.current < 0) {
       return null;
     }
@@ -46,8 +58,7 @@ class GlobeView extends React.Component {
           style={{transform: [{rotateY: this.rotation}]}}
           source={{gltf2: source.root.url}}
         />
-
-
+        <CenterControl handle={this.handle} />
       </View>
     );
   }
@@ -62,10 +73,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start'
   },
-  container: {
-    backgroundColor: '#707A8CB3',
-    width: 40,
-    height: 40,
+  button: {
+    backgroundColor: 'yellow',
+    width: 100,
+    height: 100,
+    marginRight: 100,
+    transform: [{translateX: -4}]
   }
 });
 

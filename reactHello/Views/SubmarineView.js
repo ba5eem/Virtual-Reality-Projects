@@ -3,7 +3,7 @@ import {Animated, View} from 'react-360';
 import Entity from 'Entity';
 import AmbientLight from 'AmbientLight';
 import PointLight from 'PointLight';
-import {connect} from './Store';
+import {connect} from '../Store';
 import {Location} from 'react-360-web';
 
 const AnimatedEntity = Animated.createAnimatedComponent(Entity);

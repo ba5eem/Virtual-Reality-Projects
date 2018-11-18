@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, Text, View, VrButton} from 'react-360';
-import {connect} from './Store';
+import {connect} from '../Store';
 
 /**
  * Render a description of the currently-selected model.

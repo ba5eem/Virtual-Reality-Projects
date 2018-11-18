@@ -5,11 +5,25 @@ import {
   Text,
   View,
 } from 'react-360';
+import { connect} from 'react-redux';
+import { getAll } from './actions';
 
 
 
-export default class Command extends React.Component {
+class Command extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {}
+  }
+
+
+  componentDidMount(){
+    this.props.getAll();
+  }
+
   render() {
+    console.log(this.props);
     return (
       <View style={styles.panel}>
         <View style={styles.greetingBox}>
@@ -43,3 +57,15 @@ const styles = StyleSheet.create({
 });
 
 
+const mapStateToProps = (state) => {
+  return {
+    data: state
+  }
+}
+
+const ConnectedCommand = connect(
+  mapStateToProps,
+  {getAll}
+)(Command)
+
+export default ConnectedCommand;

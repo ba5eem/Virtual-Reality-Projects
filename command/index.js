@@ -8,22 +8,32 @@ import {
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
-import Command from './Command';
+import ConnectedCommand from './Command';
+import ConnectedLeftPanel from './LeftPanel';
 
 const store = createStore(reducers);
 
 
-export default class App extends React.Component {
+class Command extends React.Component {
   render() {
     return (
       <Provider store={store}>
-          <Command/>
+        <ConnectedCommand/>
+      </Provider>
+    );
+  }
+}
+
+class LeftPanel extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ConnectedLeftPanel/>
       </Provider>
     );
   }
 }
 
 
-
-
-AppRegistry.registerComponent('App', () => App);
+AppRegistry.registerComponent('Command', (props) => Command);
+AppRegistry.registerComponent('LeftPanel', (props) => LeftPanel);

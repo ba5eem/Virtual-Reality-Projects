@@ -14,19 +14,24 @@ function init(bundle, parent, options = {}) {
   leftPanel.setAngle(-0.8, 0);
   const rightPanel = new Surface(300, 600, Surface.SurfaceShape.Flat);
   rightPanel.setAngle(0.8, 0);
-  // Render your app content to the default cylinder surface
-  // r360.renderToSurface(
-  //   r360.createRoot('LeftPanel', {}),
-  //   r360.getDefaultSurface()
-  // );
+
+
+
 
   r360.renderToSurface(
-  r360.createRoot('LeftPanel'),
-  leftPanel,
+    r360.createRoot('LeftPanel'),
+    leftPanel,
   );
   r360.renderToSurface(
-    r360.createRoot('Command'),
+    r360.createRoot('RightPanel'),
     rightPanel,
+  );
+
+
+ // Location rendering
+  r360.renderToLocation(
+    r360.createRoot('ModelView'), // good position - change rotation settings
+    new Location([0, 0, -6]),
   );
 
 

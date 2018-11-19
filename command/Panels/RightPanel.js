@@ -5,12 +5,12 @@ import {
   Text,
   View,
 } from 'react-360';
-import { connect} from 'react-redux';
-import { getAll } from './actions';
+import { connect } from 'react-redux';
+import { getAll } from '../actions';
 
 
 
-class LeftPanel extends React.Component {
+class RightPanel extends React.Component {
   constructor(props){
     super(props);
 
@@ -63,9 +63,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedLeftPanel = connect(
+const ConnectedRightPanel = connect(
   mapStateToProps,
   {getAll}
-)(LeftPanel)
+)(RightPanel)
 
-export default ConnectedLeftPanel;
+export default ConnectedRightPanel;

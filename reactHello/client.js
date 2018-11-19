@@ -38,22 +38,22 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('SubmarineView'), // good position
     new Location([0, 0, -6]),
   );
-  r360.renderToLocation(
-    r360.createRoot('BattleshipView'),
-    new Location([0, -3, -3]),
-  );
-  r360.renderToLocation(
-    r360.createRoot('DroneView'),
-    new Location([0, 0, -200]),
-  );
-  r360.renderToLocation(
-    r360.createRoot('IslandView'), // good position, need to fix rotation abou 180deg
-    new Location([0, -30, -80]),
-  );
-  r360.renderToLocation(
-    r360.createRoot('GlobeView'),
-    new Location([0, 0, -150]),
-  );
+  // r360.renderToLocation(
+  //   r360.createRoot('BattleshipView'),
+  //   new Location([0, -3, -3]),
+  // );
+  // r360.renderToLocation(
+  //   r360.createRoot('DroneView'),
+  //   new Location([0, 0, -200]),
+  // );
+  // r360.renderToLocation(
+  //   r360.createRoot('IslandView'), // good position, need to fix rotation abou 180deg
+  //   new Location([0, -30, -80]),
+  // );
+  // r360.renderToLocation(
+  //   r360.createRoot('GlobeView'),
+  //   new Location([0, 0, -150]),
+  // );
 
   r360.compositor.setBackground('./static_assets/360_world.jpg');
 }

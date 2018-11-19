@@ -16,7 +16,7 @@ const AnimatedEntity = Animated.createAnimatedComponent(Entity);
  * Renders the actual model in 3D space, rotating it a full 360 degrees to show
  * it from all angles.
  */
-class SubmarineView extends React.Component {
+class ModelView extends React.Component {
   rotation = new Animated.Value(0);
 
 
@@ -56,9 +56,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedSubmarineView = connect(
+const ConnectedModelView = connect(
   mapStateToProps,
   {getAll}
-)(SubmarineView)
+)(ModelView)
 
-export default ConnectedSubmarineView;
+export default ConnectedModelView;

@@ -8,17 +8,24 @@ import {
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
-import ConnectedCommand from './Command';
-import ConnectedLeftPanel from './LeftPanel';
+
+// Panels =>
+import ConnectedRightPanel from './Panels/RightPanel';
+import ConnectedLeftPanel from './Panels/LeftPanel';
+import ConnectedCenterPanel from './Panels/CenterPanel';
+
+// Models =>
+import ConnectedModelView from './Models/ModelView';
+
 
 const store = createStore(reducers);
 
 
-class Command extends React.Component {
+class RightPanel extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <ConnectedCommand/>
+        <ConnectedRightPanel/>
       </Provider>
     );
   }
@@ -34,6 +41,37 @@ class LeftPanel extends React.Component {
   }
 }
 
+class CenterPanel extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ConnectedCenterPanel/>
+      </Provider>
+    );
+  }
+}
 
-AppRegistry.registerComponent('Command', (props) => Command);
-AppRegistry.registerComponent('LeftPanel', (props) => LeftPanel);
+
+class ModelView extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ConnectedModelView/>
+      </Provider>
+    );
+  }
+}
+
+
+AppRegistry.registerComponent('RightPanel', () => RightPanel);
+AppRegistry.registerComponent('LeftPanel', () => LeftPanel);
+AppRegistry.registerComponent('CenterPanel', () => CenterPanel);
+
+// MODELS
+AppRegistry.registerComponent('ModelView', () => ModelView);
+
+
+
+
+
+

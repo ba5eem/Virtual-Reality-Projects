@@ -9,6 +9,11 @@ import {
 } from 'react-360';
 import { connect} from 'react-redux';
 import { getModel } from '../actions';
+import VideoFeed from './Components/VideoFeed';
+
+
+
+
 
 
 
@@ -28,17 +33,21 @@ class CenterPanel extends React.Component {
   }
 
   render() {
-    if(this.props.data.length !== 0){
-      return null;
-    }
-    return (
-        <View style={styles.wrapper}>
-          <Text>ola</Text>
-        </View>
-    );
-  }
+    if(this.props.data === []){ return null; }
+    else if(this.props.data === 'assets/dfSQmeuuYt3'){ return null }
 
+    else if(this.props.data === 'dronefeed'){ return (<VideoFeed />) }
+    return (
+      <View style={styles.wrapper}>
+        <Text>Central Control</Text>
+      </View>
+
+
+      )
+  }
 };
+
+
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -50,35 +59,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'stretch',
-  },
-  postButton: {
-    height: 120,
-    backgroundColor: '#000000',
-    overflow: 'hidden',
-  },
-  postButtonInfo: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    flexDirection: 'column',
-  },
-  postButtonPreview: {
-    width: '100%',
-    height: 225,
-  },
-  postButtonInfoHover: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-  },
-  postButtonLabel: {
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    paddingHorizontal: 10,
-    paddingVertical: 2,
-    alignSelf: 'flex-start',
-  },
-  postButtonName: {
-    fontSize: 24,
-  },
-  postButtonAuthor: {
-    fontSize: 16,
   }
 });
 

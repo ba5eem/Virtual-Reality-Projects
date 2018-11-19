@@ -8,9 +8,9 @@ import { connect } from 'react-redux';
 import { getModel } from '../actions';
 import { data } from '../actions/seed';
 
-
-
 const AnimatedEntity = Animated.createAnimatedComponent(Entity);
+
+// Create a location two meters in front of the user, and one meter down
 
 /**
  * Renders the actual model in 3D space, rotating it a full 360 degrees to show
@@ -35,6 +35,10 @@ class ModelView extends React.Component {
     if(file.length === 0){
       return null;
     }
+    else if(this.props.data === 'dronefeed'){
+      return null;
+    }
+    
     const source = file[0].formats.filter(e => {
       return e.formatType === 'GLTF2';
     })[0];

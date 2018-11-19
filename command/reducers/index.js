@@ -3,6 +3,10 @@ import {
   GET_MODEL
   } from '../actions'
 
+let local = {
+  data: [],
+  id: 'all'
+}
 
 
 export default function(state=[], action){

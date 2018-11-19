@@ -19,7 +19,7 @@ class RightPanel extends React.Component {
 
 
   componentDidMount(){
-    this.props.getAll();
+    //this.props.getAll();
   }
 
   render() {

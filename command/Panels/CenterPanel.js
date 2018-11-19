@@ -8,7 +8,7 @@ import {
   Image
 } from 'react-360';
 import { connect} from 'react-redux';
-import { getAll } from '../actions';
+import { getModel } from '../actions';
 
 
 
@@ -24,13 +24,13 @@ class CenterPanel extends React.Component {
 
 
   componentDidMount(){
-    this.props.getAll();
-    //this.rotation.setValue(0);
-    //Animated.timing(this.rotation, {toValue: 360, duration: 20000}).start();
+    this.props.getModel();
   }
 
   render() {
-    console.log(this.props);
+    if(this.props.data.length !== 0){
+      return null;
+    }
     return (
         <View style={styles.wrapper}>
           <Text>ola</Text>
@@ -91,7 +91,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedCenterPanel = connect(
   mapStateToProps,
-  {getAll}
+  {getModel}
 )(CenterPanel)
 
 export default ConnectedCenterPanel;

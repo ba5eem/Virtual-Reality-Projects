@@ -35,7 +35,7 @@ class ModelView extends React.Component {
     if(file.length === 0){
       return null;
     }
-    const source = data[0].formats.filter(e => {
+    const source = file[0].formats.filter(e => {
       return e.formatType === 'GLTF2';
     })[0];
     return (

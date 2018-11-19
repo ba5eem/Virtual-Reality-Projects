@@ -15,6 +15,8 @@ function init(bundle, parent, options = {}) {
   const rightPanel = new Surface(300, 600, Surface.SurfaceShape.Flat);
   rightPanel.setAngle(0.8, 0);
 
+  const centerPanel = new Surface(800 , 600, Surface.SurfaceShape.Cylinder);
+  centerPanel.setAngle(0, 0)
 
 
 
@@ -22,9 +24,15 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('LeftPanel'),
     leftPanel,
   );
+
   r360.renderToSurface(
     r360.createRoot('RightPanel'),
     rightPanel,
+  );
+
+  r360.renderToSurface(
+    r360.createRoot('CenterPanel'),
+    centerPanel,
   );
 
 

@@ -8,7 +8,8 @@ import {
   Image
 } from 'react-360';
 import { connect} from 'react-redux';
-import { getAll } from '../actions';
+import { getModel } from '../actions';
+import { data } from '../actions/seed';
 
 
 
@@ -28,22 +29,22 @@ class LeftPanel extends React.Component {
   }
 
 
-  componentDidMount(){
-    this.props.getAll();
+  requestModel = (id) => {
+    this.props.getModel(id);
   }
 
   render() {
     console.log(this.props);
     return (
         <View style={styles.wrapper}>
-          {this.props.data.map((e,i) => {
+          {data.map((e,i) => {
             return (
                 <View key={i.toString()}>
                   <VrButton
                     style={styles.postButton}
                     onEnter={() => this.setState({hover: true})}
                     onExit={() => this.setState({hover: false})}
-                    onClick={()=>console.log('clicked')}>
+                    onClick={()=>this.requestModel(e.name)}>
                     <Image style={styles.postButtonPreview} source={{uri: e.thumbnail.url}} />
                     <View style={[styles.postButtonInfo, this.state.hover ? styles.postButtonInfoHover : null]}>
                       <View style={styles.postButtonLabel}>
@@ -112,7 +113,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedLeftPanel = connect(
   mapStateToProps,
-  {getAll}
+  { getModel }
 )(LeftPanel)
 
 export default ConnectedLeftPanel;

@@ -5,7 +5,7 @@ import AmbientLight from 'AmbientLight';
 import PointLight from 'PointLight';
 import { Location } from 'react-360-web';
 import { connect } from 'react-redux';
-import { getAll } from '../actions';
+import { getModel } from '../actions';
 import { data } from '../actions/seed';
 
 
@@ -21,7 +21,7 @@ class ModelView extends React.Component {
 
 
   componentDidMount() {
-    this.props.getAll();
+    this.props.getModel();
     this.rotation.setValue(0);
     Animated.timing(this.rotation, {toValue: 360, duration: 20000}).start();
   }
@@ -29,7 +29,12 @@ class ModelView extends React.Component {
 
 
   render() {
-    console.log(this.props);
+    const file = data.filter(e => {
+      return e.name === this.props.data;
+    });
+    if(file.length === 0){
+      return null;
+    }
     const source = data[0].formats.filter(e => {
       return e.formatType === 'GLTF2';
     })[0];
@@ -58,7 +63,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedModelView = connect(
   mapStateToProps,
-  {getAll}
+  {getModel}
 )(ModelView)
 
 export default ConnectedModelView;

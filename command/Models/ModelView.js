@@ -38,6 +38,9 @@ class ModelView extends React.Component {
     else if(this.props.data === 'dronefeed'){
       return null;
     }
+    else if(this.props.data !== 'assets/dfSQmeuuYt3'){
+      return null;
+    }
     
     const source = file[0].formats.filter(e => {
       return e.formatType === 'GLTF2';

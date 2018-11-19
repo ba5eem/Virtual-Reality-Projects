@@ -5,7 +5,8 @@ import {
   Text,
   View,
   VrButton,
-  Image
+  Image,
+  asset
 } from 'react-360';
 import { connect} from 'react-redux';
 import { getModel } from '../actions';
@@ -23,7 +24,6 @@ class CenterPanel extends React.Component {
 
     this.state = {
       rotation: 0
-
     }
   }
 
@@ -39,7 +39,7 @@ class CenterPanel extends React.Component {
     else if(this.props.data === 'dronefeed'){ return (<VideoFeed />) }
     return (
       <View style={styles.wrapper}>
-        <Text>Central Control</Text>
+        <Image style={styles.image} source={asset('oahu.jpg')}/>
       </View>
 
 
@@ -59,6 +59,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'stretch',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    transform: [{translate: [0,0,-2]}]
   }
 });
 

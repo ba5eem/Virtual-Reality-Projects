@@ -48,7 +48,7 @@ class LeftPanel extends React.Component {
                     <Image style={styles.postButtonPreview} source={{uri: e.thumbnail.url}} />
                     <View style={[styles.postButtonInfo, this.state.hover ? styles.postButtonInfoHover : null]}>
                       <View style={styles.postButtonLabel}>
-                        <Text style={styles.postButtonName}>{e.displayName} view</Text>
+                        <Text style={styles.postButtonName}>{e.displayName}</Text>
                       </View>
                       <View style={styles.postButtonLabel}>
                       </View>

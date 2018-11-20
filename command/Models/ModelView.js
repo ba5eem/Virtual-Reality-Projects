@@ -23,7 +23,7 @@ class ModelView extends React.Component {
   componentDidMount() {
     this.props.getModel();
     this.rotation.setValue(0);
-    Animated.timing(this.rotation, {toValue: 360, duration: 20000}).start();
+    Animated.timing(this.rotation, {toValue: 45, duration: 5000}).start();
   }
 
 
@@ -38,7 +38,7 @@ class ModelView extends React.Component {
     else if(this.props.data === 'dronefeed'){
       return null;
     }
-    else if(this.props.data !== 'assets/dfSQmeuuYt3'){
+    else if(this.props.data !== 'submarine'){
       return null;
     }
     

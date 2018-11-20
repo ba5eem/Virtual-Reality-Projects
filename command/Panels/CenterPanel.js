@@ -34,7 +34,7 @@ class CenterPanel extends React.Component {
 
   render() {
     if(this.props.data === []){ return null; }
-    else if(this.props.data === 'assets/dfSQmeuuYt3'){ return null }
+    else if(this.props.data === 'submarine'){ return null }
 
     else if(this.props.data === 'dronefeed'){ return (<VideoFeed />) }
     return (

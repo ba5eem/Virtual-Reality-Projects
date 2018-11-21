@@ -21,37 +21,39 @@ class VideoFeed extends Component {
     }
   }
 
+
+
   render() {
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
-          <VrButton 
+          <VrButton
             onEnter={() => this.setState({hover: true})}
             onExit={() => this.setState({hover: false})}
-            onClick={(e)=>console.log("1")} 
+            onClick={(e)=>console.log("1")}
             style={[styles.postButton, this.state.hover ? styles.postButtonHover : null]}>
             <Text style={styles.title}>Command Center</Text>
           </VrButton>
         </View>
         <View style={styles.header}>
 
-            <VrButton 
+            <VrButton
               onEnter={() => this.setState({hover: true})}
               onExit={() => this.setState({hover: false})}
-              onClick={(e)=>console.log("1")} 
+              onClick={(e)=>console.log("1")}
               style={styles.container}>
               <Video
                 style={styles.container}
-                source={asset('jelly.webm', {format: 'webm'})}
+                source={{uri: 'http://localhost:3000/video'}}
                 playerState={this.state.playerState}
               />
-                
-         
+
+
 
             </VrButton>
-  
+
         </View>
-        
+
 
       </View>
     );
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#707A8C'
   },
   title: {
-    fontSize: 50, 
+    fontSize: 50,
     color: '#FF3333',
     textAlign: 'center'
   },
@@ -98,8 +100,8 @@ const styles = StyleSheet.create({
   container: {
 
     marginLeft:20,
-    width: "90%", 
-    height: 350, 
+    width: "90%",
+    height: 350,
     marginTop: 5,
     marginBottom: 5
   }

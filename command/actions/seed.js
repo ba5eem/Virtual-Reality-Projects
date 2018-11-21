@@ -34,8 +34,8 @@ export const locations = [
 
 export const parts = [{ 
 	name: 'USS Hawaii', 
-	lat: 21.350,
-	lon: -157.839,
+	lat: 21.288712,
+	lon: -157.879976,
 	distance: '#FF3333',
 	room: 'control room',
 	partName: 'carbon dioxide scrubber',

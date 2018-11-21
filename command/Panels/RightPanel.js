@@ -66,12 +66,16 @@ class RightPanel extends React.Component {
           {arr.map((e,i) => {
             return (
               <View key={i.toString()} style={{ marginTop: 10 }}>
-                <View style={{ backgroundColor: e.distance }}> 
+                <View style={{}}> 
                   <Text style={styles.name}>{e.name}</Text>
                   <Text style={styles.author}>[{e.lat},{e.lon}]</Text>
+                  <Image style={styles.mapImage} source={asset('mapWMark.png')}/>
+                  <Text style={styles.ping}>Part Requested</Text>
+                  <Text style={[styles.ping, {backgroundColor: 'rgb(255,255,51)', color: "black" }]}>Status: in-transit</Text>
+                  <Text style={[styles.ping, {backgroundColor: 'rgb(255,255,51)', color: "black" }]}>Payload delivery method: Drone</Text>
                 </View>
               </View>
-          )
+           )
           })}
         </View>
     );
@@ -100,23 +104,36 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 30,
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
   },
   author: {
     fontSize: 20,
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
   },
   container: {
-    backgroundColor: '#FF3333'
+
   },
   image: {
     marginTop: 30,
     marginLeft: 20,
     width: "90%",
     height: "50%"
-  }
+  },
+  mapImage: {
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    width: '90%', 
+    height: '60%'
+  },
+  ping: {
+    marginTop: 20,
+    fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
+  },
 });
 
 const mapStateToProps = (state) => {

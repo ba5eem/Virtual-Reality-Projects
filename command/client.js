@@ -15,7 +15,7 @@ function init(bundle, parent, options = {}) {
   const rightPanel = new Surface(300, 600, Surface.SurfaceShape.Flat);
   rightPanel.setAngle(0.8, 0);
 
-  const centerPanel = new Surface(800 , 600, Surface.SurfaceShape.Cylinder);
+  const centerPanel = new Surface(1000 , 600, Surface.SurfaceShape.Flat);
   centerPanel.setAngle(0, 0)
 
 

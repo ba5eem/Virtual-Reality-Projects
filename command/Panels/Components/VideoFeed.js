@@ -27,13 +27,6 @@ class VideoFeed extends Component {
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
-          <VrButton
-            onEnter={() => this.setState({hover: true})}
-            onExit={() => this.setState({hover: false})}
-            onClick={(e)=>console.log("1")}
-            style={[styles.postButton, this.state.hover ? styles.postButtonHover : null]}>
-            <Text style={styles.title}>Command Center</Text>
-          </VrButton>
         </View>
         <View style={styles.header}>
 
@@ -64,10 +57,8 @@ class VideoFeed extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: 800,
+    width: 1000,
     height: 600,
-    borderColor: '#313E52',
-    borderWidth: 5,
     flexDirection: 'column',
     justifyContent: 'flex-start'
   },
@@ -81,7 +72,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 50,
-    color: '#FF3333',
+    color: 'grey',
     textAlign: 'center'
   },
   header: {
@@ -98,12 +89,8 @@ const styles = StyleSheet.create({
     transform: [{translate: [0,0,-2]}]
   },
   container: {
-
-    marginLeft:20,
-    width: "90%",
-    height: 350,
-    marginTop: 5,
-    marginBottom: 5
+    width: "100%",
+    height: "100%"
   }
 });
 

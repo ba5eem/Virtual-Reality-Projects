@@ -35,6 +35,8 @@ class ModelView extends React.Component {
 
 
   render() {
+
+    this.state.rotation.setValue(this.props.rotate);
     const file = data.filter(e => {
       return e.name === this.props.data;
     });
@@ -71,7 +73,8 @@ class ModelView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state
+    data: state.data,
+    rotate: state.rotate
   }
 }
 

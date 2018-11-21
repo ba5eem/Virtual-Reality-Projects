@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    data: state
+    data: state.data
   }
 }
 

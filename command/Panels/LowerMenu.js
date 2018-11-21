@@ -49,14 +49,14 @@ class LowerMenu extends React.Component {
         <VrButton
           onEnter={() => this.setState({hoverA: true})}
           onExit={() => this.setState({hoverA: false})}
-          onClick={()=>this.rotateSub('left')}
+          onClick={()=>this.rotateSub("+")}
           style={[styles.buttonA, this.state.hoverA ? styles.hover : null]}>
           <Text style={styles.left}>{left}</Text>
         </VrButton>
         <VrButton
           onEnter={() => this.setState({hoverB: true})}
           onExit={() => this.setState({hoverB: false})}
-          onClick={()=>this.rotateSub('right')}
+          onClick={()=>this.rotateSub("-")}
           style={[styles.buttonB, this.state.hoverB ? styles.hover : null]}>
           <Text style={styles.right}>{right}</Text>
         </VrButton>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    data: state
+    data: state.data
   }
 }
 

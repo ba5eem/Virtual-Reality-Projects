@@ -1,30 +1,9 @@
-import {
-  GET_ALL,
-  GET_MODEL,
-  SET_AIS,
-  ROTATE_SUB
-  } from '../actions'
+import { combineReducers } from 'redux';
 
-let local = {
-  data: [],
-  id: 'all'
-}
+import data from './models';
+import rotate from './rotate';
 
-
-export default function(state=[], action){
-  switch(action.type){
-    case GET_ALL:
-      return state;
-    case GET_MODEL:
-      if(action.id === undefined){ return state; }
-    	return action.id;
-    case SET_AIS:
-      if(action.id === undefined){ return state; }
-      return action.id;
-    case ROTATE_SUB:
-      if(action.id === undefined){ return state; }
-      return action.id;
-    default:
-      return state;
-  }
-}
+export default combineReducers({
+	data,
+	rotate
+})

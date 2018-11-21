@@ -50,7 +50,7 @@ class CenterPanel extends React.Component {
                     onExit={() => this.setState({hover: false})}
                     onClick={()=>console.log('ola')}>
             <View style={styles.postButtonLabel}>
-                <Image style={{width: 40, height: 40}} source={asset('tri2.png')}/>
+                <Image style={{width: 40, height: 60}} source={asset('tri2.png')}/>
             </View>
             <View style={styles.postButtonLabel}>
             </View>
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     zIndex: 10000
   },
   postButton: {
-    height: 120,
-    width: 100,
+    height: 190,
+    width: 90,
     overflow: 'hidden',
   },
   postButtonInfo: {
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     alignSelf: 'flex-start',
     marginLeft: 690,
-    marginTop: 440
+    marginTop: 420
   },
 });
 

@@ -13,6 +13,7 @@ import reducers from './reducers';
 import ConnectedRightPanel from './Panels/RightPanel';
 import ConnectedLeftPanel from './Panels/LeftPanel';
 import ConnectedCenterPanel from './Panels/CenterPanel';
+import ConnectedLowerMenu from './Panels/LowerMenu';
 
 // Models =>
 import ConnectedModelView from './Models/ModelView';
@@ -62,10 +63,21 @@ class ModelView extends React.Component {
   }
 }
 
+class LowerMenu extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ConnectedLowerMenu/>
+      </Provider>
+    );
+  }
+}
+
 
 AppRegistry.registerComponent('RightPanel', () => RightPanel);
 AppRegistry.registerComponent('LeftPanel', () => LeftPanel);
 AppRegistry.registerComponent('CenterPanel', () => CenterPanel);
+AppRegistry.registerComponent('LowerMenu', () => LowerMenu);
 
 // MODELS
 AppRegistry.registerComponent('ModelView', () => ModelView);

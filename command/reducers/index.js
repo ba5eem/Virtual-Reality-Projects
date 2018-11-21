@@ -1,7 +1,8 @@
 import {
   GET_ALL,
   GET_MODEL,
-  SET_AIS
+  SET_AIS,
+  ROTATE_SUB
   } from '../actions'
 
 let local = {
@@ -15,14 +16,13 @@ export default function(state=[], action){
     case GET_ALL:
       return state;
     case GET_MODEL:
-      if(action.id === undefined){
-        return state;
-      }
+      if(action.id === undefined){ return state; }
     	return action.id;
     case SET_AIS:
-      if(action.id === undefined){
-        return state;
-      }
+      if(action.id === undefined){ return state; }
+      return action.id;
+    case ROTATE_SUB:
+      if(action.id === undefined){ return state; }
       return action.id;
     default:
       return state;

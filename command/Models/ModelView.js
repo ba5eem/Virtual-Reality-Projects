@@ -17,13 +17,19 @@ const AnimatedEntity = Animated.createAnimatedComponent(Entity);
  * it from all angles.
  */
 class ModelView extends React.Component {
-  rotation = new Animated.Value(0);
+  constructor(props){
+    super(props)
+    this.state = {
+      rotation: new Animated.Value(0),
+      hover: false
+    }
+  }
 
 
   componentDidMount() {
     this.props.getModel();
-    this.rotation.setValue(0);
-    Animated.timing(this.rotation, {toValue: 45, duration: 5000}).start();
+    this.state.rotation.setValue(0);
+    Animated.timing(this.state.rotation, {toValue: 45, duration: 5000}).start();
   }
 
 
@@ -52,10 +58,11 @@ class ModelView extends React.Component {
           intensity={0.4}
           style={{transform: [{translate: [0, 4, -1]}]}}
         />
+
         <AnimatedEntity
-          style={{transform: [{rotateY: this.rotation}]}}
+          style={{transform: [{rotateY: this.state.rotation}]}}
           source={{gltf2: source.root.url}}
-        />
+        />   
       </View>
     );
   }

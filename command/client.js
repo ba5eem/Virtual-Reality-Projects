@@ -18,6 +18,9 @@ function init(bundle, parent, options = {}) {
   const centerPanel = new Surface(1000 , 600, Surface.SurfaceShape.Flat);
   centerPanel.setAngle(0, 0)
 
+  const lowerMenu = new Surface(500, 80, Surface.SurfaceShape.Flat);
+  lowerMenu.setAngle(0, -Math.PI / 8);
+
 
 
   r360.renderToSurface(
@@ -33,6 +36,11 @@ function init(bundle, parent, options = {}) {
   r360.renderToSurface(
     r360.createRoot('CenterPanel'),
     centerPanel,
+  );
+
+  r360.renderToSurface(
+    r360.createRoot('LowerMenu'),
+    lowerMenu,
   );
 
 

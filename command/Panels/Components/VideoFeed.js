@@ -37,7 +37,7 @@ class VideoFeed extends Component {
               style={styles.container}>
               <Video
                 style={styles.container}
-                source={{uri: 'http://localhost:3000/video'}}
+                source={{uri: 'http://192.168.2.192:3000/video'}}
                 playerState={this.state.playerState}
               />
 

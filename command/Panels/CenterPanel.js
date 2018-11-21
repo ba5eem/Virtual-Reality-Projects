@@ -9,7 +9,7 @@ import {
   asset
 } from 'react-360';
 import { connect} from 'react-redux';
-import { getModel } from '../actions';
+import { getModel, setAis } from '../actions';
 import VideoFeed from './Components/VideoFeed';
 
 
@@ -33,27 +33,55 @@ class CenterPanel extends React.Component {
     this.props.getModel();
   }
 
+  setAis = () => {
+    this.props.setAis();
+  }
+
   render() {
     if(this.props.data === []){ return null; }
     else if(this.props.data === 'submarine'){ return null }
 
     else if(this.props.data === 'dronefeed'){ return (<VideoFeed />) }
+
+    else if(this.props.data === 'ais'){ 
+      return (
+      <View style={styles.wrapper}>
+
+        <Image style={styles.image} source={asset('aisoahu.jpg')}/>
+
+          <View style={[styles.postButtonInfo, this.state.hover ? styles.postButtonInfoHover : null]}>
+            <VrButton
+                style={styles.postButton}
+                onEnter={() => this.setState({hover: true})}
+                onExit={() => this.setState({hover: false})}
+                onClick={()=>this.setAis()}>
+              <View style={styles.postButtonLabel}>
+                <Image style={{width: 40, height: 60}} source={asset('tri2.png')}/>
+              </View>
+            </VrButton>
+          </View>
+
+      </View>
+
+
+      )
+
+    }
+
     return (
       <View style={styles.wrapper}>
 
         <Image style={styles.image} source={asset('oahu.jpg')}/>
 
           <View style={[styles.postButtonInfo, this.state.hover ? styles.postButtonInfoHover : null]}>
-          <VrButton
-                    style={styles.postButton}
-                    onEnter={() => this.setState({hover: true})}
-                    onExit={() => this.setState({hover: false})}
-                    onClick={()=>console.log('ola')}>
-            <View style={styles.postButtonLabel}>
+            <VrButton
+                style={styles.postButton}
+                onEnter={() => this.setState({hover: true})}
+                onExit={() => this.setState({hover: false})}
+                onClick={()=>this.setAis()}>
+              <View style={styles.postButtonLabel}>
                 <Image style={{width: 40, height: 60}} source={asset('tri2.png')}/>
-            </View>
-            <View style={styles.postButtonLabel}>
-            </View>
+              </View>
             </VrButton>
           </View>
 
@@ -125,7 +153,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedCenterPanel = connect(
   mapStateToProps,
-  {getModel}
+  { getModel, setAis }
 )(CenterPanel)
 
 export default ConnectedCenterPanel;

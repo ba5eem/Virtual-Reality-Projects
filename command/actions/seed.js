@@ -42,3 +42,4 @@ export const parts = [{
 	partImg: 'scrubber.jpg'
 }
 ]
+

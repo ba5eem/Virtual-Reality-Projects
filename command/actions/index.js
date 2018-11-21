@@ -1,6 +1,7 @@
 
 export const GET_ALL = "GET_ALL";
 export const GET_MODEL = "GET_MODEL";
+export const SET_AIS = "SET_AIS";
 
 
 import { data } from './seed';
@@ -21,3 +22,10 @@ export const getModel = (id) => {
   }
 }
 
+export const setAis = () => {
+  return {
+    type: SET_AIS,
+    payload: data,
+    id: 'showaisinfo'
+  }
+}

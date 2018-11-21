@@ -60,9 +60,28 @@ class RightPanel extends React.Component {
     );
   }
 
+  renderAISVessel = (arr) => {
+    return (
+        <View style={styles.wrapper}>
+          {arr.map((e,i) => {
+            return (
+              <View key={i.toString()} style={{ marginTop: 10 }}>
+                <View style={{ backgroundColor: e.distance }}> 
+                  <Text style={styles.name}>{e.name}</Text>
+                  <Text style={styles.author}>[{e.lat},{e.lon}]</Text>
+                </View>
+              </View>
+          )
+          })}
+        </View>
+    );
+  }
+
   render() {
+
     if(this.props.data === 'ais'){ return ( this.renderAis(locations) ); }
     else if(this.props.data === 'submarine'){ return ( this.renderParts(parts) ); }
+    else if(this.props.data === 'showaisinfo'){ return ( this.renderAISVessel(parts) ); }
     return this.renderAis([]);
   }
 };
